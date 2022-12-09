@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_09_053336) do
+ActiveRecord::Schema.define(version: 2022_12_09_064300) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_12_09_053336) do
   create_table "sports", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sport"
   end
 
   create_table "user_sports", force: :cascade do |t|

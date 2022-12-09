@@ -1,3 +1,31 @@
 <h1> <%= @current_user.username %> </h1>
 
+<h2> Sports of Interest </h2>
 
+<form action="/insert_user_sport" method="post">
+
+      <div>
+        <label for="sport_id_box">
+          Sport
+        </label>
+
+        <input name="query_user_id" type="hidden" value="<% @current_user.id %>" />
+
+        <select name="query_sport_id">
+        
+        <% Sport.all.order(:sport).each do |a_sport|%>
+        <option value="<%=a_sport.id%>">
+        <%=a_sport.sport%>
+        </option>
+
+        <%end%>
+        
+        </select>
+
+        
+      </div>
+
+      <button>
+        I play this
+      </button>
+    </form>

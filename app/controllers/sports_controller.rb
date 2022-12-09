@@ -1,8 +1,11 @@
 class SportsController < ApplicationController
-  def index
-    matching_sports = Sport.all
 
-    @list_of_sports = matching_sports.order({ :created_at => :desc })
+  
+
+  def index
+    matching_user_sports = UserSport.all
+
+    @list_of_user_sports = matching_user_sports.order({ :created_at => :desc })
 
     render({ :template => "sports/index.html.erb" })
   end
@@ -18,7 +21,7 @@ class SportsController < ApplicationController
   end
 
   def create
-    the_sport = Sport.new
+    the_sport = UserSport.new
 
     if the_sport.valid?
       the_sport.save

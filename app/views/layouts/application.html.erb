@@ -31,6 +31,9 @@
   <a href="/user_sign_in">Sign In</a>
   <%end%>
   </li>
+  <li>
+  <a href="/user_sign_out">Sign Out</a>
+  </li>
    <li>
   <% if session.fetch(:user_id)%>
   <a href="/profile">Profile</a></li>
@@ -38,7 +41,11 @@
   <%end%>
   </li>
   <li>
-  <a href="/user_sign_out">Sign Out</a></li>
+  <% if session.fetch(:user_id)%>
+  <a href="/user_sports">Connect with Others</a></li>
+  <%else%>
+  <%end%>
+  </li>
   <li>
   <a href="/users">Users</a></li>
   <li>
