@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   # USERS
 
+  get("/users/:username", { :controller => "application", :action => "user_details"})
+
   get("/users", { :controller => "application", :action => "user_roster"})
 
   # PROFILE

@@ -24,9 +24,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_details
+
+    username = params.fetch("username")
+    @user = User.where({ :username => username }).at(0)
+
+    render({ :template => "home/user_details.html.erb"})
+  end
+
   def user_roster
 
-    @user = User.all
+    user = User.all
+    @list_of_users = user.order({ :created_at => :desc })
     render({ :template => "home/users.html.erb"})
   end
 

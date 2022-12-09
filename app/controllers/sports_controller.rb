@@ -7,6 +7,9 @@ class SportsController < ApplicationController
 
     @list_of_user_sports = matching_user_sports.order({ :created_at => :desc })
 
+    @user = User.all
+    @sport = Sport.all
+
     render({ :template => "sports/index.html.erb" })
   end
 
@@ -21,7 +24,9 @@ class SportsController < ApplicationController
   end
 
   def create
-    the_sport = UserSport.new
+    the_sport = Sport.new
+    the_sport.sport = params.fetch("query_sport_sport")
+
 
     if the_sport.valid?
       the_sport.save

@@ -1,15 +1,19 @@
 <h1> <%= @current_user.username %> </h1>
 
+<h2> City </h2>
+<label> <%= @current_user.city %> </label>
+
+<h2> Phone Number </h2>
+<label> <%= @current_user.phonenumber %> </label>
+
 <h2> Sports of Interest </h2>
 
 <form action="/insert_user_sport" method="post">
 
-      <div>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
         <label for="sport_id_box">
           Sport
         </label>
-
-        <input name="query_user_id" type="hidden" value="<% @current_user.id %>" />
 
         <select name="query_sport_id">
         

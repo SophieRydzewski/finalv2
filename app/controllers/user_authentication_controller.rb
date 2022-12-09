@@ -19,7 +19,7 @@ class UserAuthenticationController < ApplicationController
       else
         session[:user_id] = user.id
       
-        redirect_to("/home", { :notice => "Signed in successfully." })
+        redirect_to("/profile", { :notice => "Signed in successfully." })
       end
     else
       redirect_to("/user_sign_in", { :alert => "No user with that email address." })
@@ -39,6 +39,7 @@ class UserAuthenticationController < ApplicationController
   def create
     @user = User.new
     @user.email = params.fetch("query_email")
+    @user.phonenumber = params.fetch("query_phonenumber")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.username = params.fetch("query_username")

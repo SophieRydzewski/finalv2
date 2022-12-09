@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Base Rails</title>
     <%= csrf_meta_tags %>
 
@@ -17,39 +18,58 @@
 
   <body>
 
-  <li>
+  <button type="button" class="btn btn-outline-info">
+  
    <% if session.fetch(:user_id)%>
    <a href="/user_sign_up">Return to Sign Up</a>
   <%else%>
    <a href="/user_sign_up">Sign Up</a>
   <%end%>
-  </li>
-  <li>
+  
+  </button>
+
+  <button type="button" class="btn btn-outline-info">
+  
   <% if session.fetch(:user_id)%>
   <a href="/user_sign_in">Return to Sign In</a>
   <%else%>
   <a href="/user_sign_in">Sign In</a>
   <%end%>
-  </li>
-  <li>
+ 
+  </button>
+
+  <button type="button" class="btn btn-outline-info">
+  
   <a href="/user_sign_out">Sign Out</a>
-  </li>
-   <li>
+  
+  </button>
+
+  <button type="button" class="btn btn-outline-info">
+   
   <% if session.fetch(:user_id)%>
-  <a href="/profile">Profile</a></li>
+  <a href="/profile">Profile</a>
   <%else%>
   <%end%>
-  </li>
-  <li>
+  
+  </button>
+
+  <button type="button" class="btn btn-outline-info">
+  
   <% if session.fetch(:user_id)%>
-  <a href="/user_sports">Connect with Others</a></li>
+  <a href="/sports">Connect with Others</a>
   <%else%>
   <%end%>
-  </li>
-  <li>
-  <a href="/users">Users</a></li>
-  <li>
-  <a href="/photos">Photos</a></li>
+  
+  </button>
+
+  <button type="button" class="btn btn-outline-info">
+  
+  <% if session.fetch(:user_id)%>
+  <a href="/users">Users</a>
+  <%else%>
+  <%end%>
+  
+  </button>
 
     <%= yield %>
   </body>

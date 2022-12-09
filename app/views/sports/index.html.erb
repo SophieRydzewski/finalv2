@@ -1,7 +1,7 @@
 <div>
   <div>
-    <h1>
-      People Playing in Your Area
+    <h1 class="display-4">
+      Looking for Players
     </h1>
   </div>
 </div>
@@ -10,11 +10,20 @@
 
 <div>
   <div>
-    <h2>
-      Add a new sport
-    </h2>
+    <h5>
+      Play a sport but don't see it on the list? Add yours here!
+    </h5>
 
-    <form action="/insert_user_sport" method="post">
+    <form action="/insert_sport" method="post">
+
+    <div>
+        <label for="sport_id_box">
+          Sport
+        </label>
+
+        <input id="query_sport_sport" type="text" name="query_sport_sport" placeholder="I want to add...">
+        
+
       <button>
         Create sport
       </button>
@@ -29,6 +38,14 @@
       <tr>
         <th>
           Username
+        </th>
+
+        <th>
+          Sport
+        </th>
+
+        <th>
+          City
         </th>
 
         <th>
@@ -48,10 +65,17 @@
 
         <td>
           <%= a_sport.user_id %>
+          <%#User.where({ :id => a_sport.user_id}).username %>
         </td>
 
         <td>
           <%= a_sport.sport_id %>
+          <%#Sport.where({ :id => a_sport.sport_id}).sport %>
+        </td>
+
+        <td>
+          <%= a_sport.sport_id %>
+          <%#User.where({ :id => a_sport.user_id}).city %>
         </td>
 
         <td>
@@ -61,6 +85,11 @@
           <%= time_ago_in_words(a_sport.updated_at) %> ago
         </td>
 
+        <td>
+        <a>
+        <%#<a href="/users/<%= User.where({ :id => a_sport.user_id}).username %"> %>
+          Contact
+        <%#/a> %>
         </td>
       </tr>
       <% end %>

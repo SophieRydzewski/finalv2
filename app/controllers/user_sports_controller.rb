@@ -18,21 +18,19 @@ class UserSportsController < ApplicationController
   end
 
   def create
+    
+    the_user_sport = UserSport.new
+    the_user_sport.user_id = session.fetch(:user_id)
+    the_user_sport.sport_id = params.fetch("query_sport_id")
+    the_user_sport.save
+      redirect_to("/sports", { :notice => "User sport created successfully." })
+    # else
+    #   redirect_to("/sports", { :alert => the_user_sport.errors.full_messages.to_sentence })
+    # end
 
     matching_user_sports = UserSport.all
 
     @list_of_user_sports = matching_user_sports.order({ :created_at => :desc })
-    
-    the_user_sport = UserSport.new
-    the_user_sport.user_id = params.fetch("query_user_id")
-    the_user_sport.sport_id = params.fetch("query_sport_id")
-
-    if the_user_sport.valid?
-      the_user_sport.save
-      redirect_to("/sports", { :notice => "User sport created successfully." })
-    else
-      redirect_to("/sports", { :alert => the_user_sport.errors.full_messages.to_sentence })
-    end
   end
 
   def update
