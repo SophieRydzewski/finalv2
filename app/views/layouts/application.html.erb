@@ -16,6 +16,34 @@
   </head>
 
   <body>
+
+  <li>
+   <% if session.fetch(:user_id)%>
+   <a href="/user_sign_up">Return to Sign Up</a>
+  <%else%>
+   <a href="/user_sign_up">Sign Up</a>
+  <%end%>
+  </li>
+  <li>
+  <% if session.fetch(:user_id)%>
+  <a href="/user_sign_in">Return to Sign In</a>
+  <%else%>
+  <a href="/user_sign_in">Sign In</a>
+  <%end%>
+  </li>
+   <li>
+  <% if session.fetch(:user_id)%>
+  <a href="/profile">Profile</a></li>
+  <%else%>
+  <%end%>
+  </li>
+  <li>
+  <a href="/user_sign_out">Sign Out</a></li>
+  <li>
+  <a href="/users">Users</a></li>
+  <li>
+  <a href="/photos">Photos</a></li>
+
     <%= yield %>
   </body>
 </html>

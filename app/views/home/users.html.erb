@@ -1,0 +1,28 @@
+  <table border="1">
+  <tr>
+    <th>User</th>
+    <th>City</th>
+    <th></th>
+   
+  </tr>
+
+  
+  <% @user.each do |user| %>
+  <tr>
+
+    <td>
+      <%= user.username %>
+    </td>
+
+    <td>
+      <%= user.city %>
+    </td>
+
+    <td>
+      <a href="/users/<%= user.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  
+  <% end %>
