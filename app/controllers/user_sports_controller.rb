@@ -21,6 +21,7 @@ class UserSportsController < ApplicationController
     
     the_user_sport = UserSport.new
     the_user_sport.user_id = session.fetch(:user_id)
+    the_user_sport.city = session.fetch(:city)
     the_user_sport.sport_id = params.fetch("query_sport_id")
     the_user_sport.save
       redirect_to("/sports", { :notice => "User sport created successfully." })

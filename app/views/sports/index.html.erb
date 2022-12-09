@@ -64,18 +64,20 @@
       <tr>
 
         <td>
-          <%= a_sport.user_id %>
-          <%#User.where({ :id => a_sport.user_id}).username %>
+          <%# a_sport.user_id %>
+          <%= User.where({ :id => a_sport.user_id}).at(0).username%>
+          
+          <%# user.username %>
         </td>
 
         <td>
-          <%= a_sport.sport_id %>
-          <%#Sport.where({ :id => a_sport.sport_id}).sport %>
+          <%# a_sport.sport_id %>
+          <%= Sport.where({ :id => a_sport.sport_id}).at(0).sport %>
         </td>
 
         <td>
-          <%= a_sport.sport_id %>
-          <%#User.where({ :id => a_sport.user_id}).city %>
+          <%# a_sport.city %>
+          <%= User.where({ :id => a_sport.user_id}).at(0).city %>
         </td>
 
         <td>
@@ -86,10 +88,9 @@
         </td>
 
         <td>
-        <a>
-        <%#<a href="/users/<%= User.where({ :id => a_sport.user_id}).username %"> %>
+        <a href="/users/<%= User.where({ :id => a_sport.user_id}).at(0).username %>">
           Contact
-        <%#/a> %>
+        </a>
         </td>
       </tr>
       <% end %>

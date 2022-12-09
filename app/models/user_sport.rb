@@ -3,6 +3,7 @@
 # Table name: user_sports
 #
 #  id         :integer          not null, primary key
+#  city       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  sport_id   :integer
